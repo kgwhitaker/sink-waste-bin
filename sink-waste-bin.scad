@@ -6,10 +6,13 @@
 // This library must be installed in your instance of OpenScad to use this model.
 include <BOSL2/std.scad>
 
+// *** Model Parameters ***
+/* [Model Parameters] */
+
 // Overall Width of the waste bin.  The side slot will be within this width.
 bin_width = 200;
 
-// Width of the sieve slot
+// Width of the side slot
 side_slot = 15;
 
 // Depth of the waste bin.
@@ -22,7 +25,10 @@ bin_height = 200;
 wall_thickness = 2;
 
 // Rounding of the outside corners.
-outside_rounding = 10;
+corner_rounding = 10;
+
+// *** "Private" variables ***
+/* [Hidden] */
 
 // OpenSCAD System Settings
 $fa = 1;
@@ -34,11 +40,11 @@ $fs = 0.4;
 module waste_bin() {
 
   difference() {
-    cuboid(size=[bin_depth, bin_width, bin_height], rounding=outside_rounding, except=[BOT, TOP]);
+    cuboid(size=[bin_depth, bin_width, bin_height], rounding=corner_rounding, except=[BOT, TOP]);
 
     // Cut out main bin area.
     translate([0, 0,wall_thickness]) {
-      cuboid(size=[bin_depth - 2 * wall_thickness, (bin_width - (2 * wall_thickness)), bin_height], rounding=outside_rounding, except=[TOP]);
+      cuboid(size=[bin_depth - 2 * wall_thickness, (bin_width - (2 * wall_thickness)), bin_height], rounding=corner_rounding, except=[TOP]);
     }
 
   }
