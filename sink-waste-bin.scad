@@ -12,6 +12,9 @@ include <BOSL2/std.scad>
 // Overall Width of the waste bin.  The side slot will be within this width.
 bin_width = 200;
 
+// Indicates if there should be a side slot.
+add_side_slot = true;
+
 // Width of the side slot
 side_slot = 15;
 
@@ -43,24 +46,25 @@ module waste_bin() {
     cuboid(size=[bin_depth, bin_width, bin_height], rounding=corner_rounding, except=[BOT, TOP]);
 
     // Cut out main bin area.
-    translate([0, 0,wall_thickness]) {
+    translate([0, 0, wall_thickness]) {
       cuboid(size=[bin_depth - 2 * wall_thickness, (bin_width - (2 * wall_thickness)), bin_height], rounding=corner_rounding, except=[TOP]);
     }
-
   }
+}
 
+//
+// Adds in the side slots.
+//
+module side_slot() {
   // Put in a divider for the side slot.
-  translate ([0,(bin_width / 2) - side_slot - wall_thickness,0]) {
-    color("red") cuboid(size=[bin_depth, wall_thickness, bin_height]);
+  translate([0, (bin_width / 2) - side_slot - wall_thickness, 0]) {
+    cuboid(size=[bin_depth, wall_thickness, bin_height]);
   }
 
   // Divide the side slot by 2.
-  translate ([0,(bin_width / 2) - side_slot + wall_thickness * 3,0]) {
-    color("red") cuboid(size=[wall_thickness, side_slot, bin_height]);
+  translate([0, (bin_width / 2) - side_slot + wall_thickness * 3, 0]) {
+    cuboid(size=[wall_thickness, side_slot, bin_height]);
   }
-
-
-
 }
 
 //
@@ -68,6 +72,10 @@ module waste_bin() {
 //
 module build_model() {
   waste_bin();
+
+  if (add_side_slot) {
+    side_slot();
+  }
 }
 
 build_model();

@@ -1,0 +1,14 @@
+{
+    "fileFormatVersion": "1",
+    "parameterSets": {
+        "nespresso_pod_bin": {
+            "add_side_slot": "false",
+            "bin_depth": "68",
+            "bin_height": "200",
+            "bin_width": "200",
+            "corner_rounding": "10",
+            "side_slot": "15",
+            "wall_thickness": "2"
+        }
+    }
+}
