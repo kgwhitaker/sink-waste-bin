@@ -9,6 +9,15 @@
             "corner_rounding": "10",
             "side_slot": "15",
             "wall_thickness": "2"
+        },
+        "small_waste_bin": {
+            "add_side_slot": "false",
+            "bin_depth": "110",
+            "bin_height": "200",
+            "bin_width": "200",
+            "corner_rounding": "10",
+            "side_slot": "15",
+            "wall_thickness": "2"
         }
     }
 }
