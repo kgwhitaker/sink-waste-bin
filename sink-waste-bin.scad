@@ -80,19 +80,18 @@ module side_slot() {
 // Adds in slots to fold in a bag
 //
 module bag_slot() {
-
+  x_shift = ( (bin_depth / 2) - (wall_thickness / 2));
   y_shift = (bin_width / 2) - side_slot - bag_slot_width / 2 - (wall_thickness / 2) - wall_thickness;
   z_shift = (bin_height / 2) - (bag_slot_len / 2);
   notch_rounding = -(bag_slot_width / 2);
 
+  // Creates the right then left notches.
+  for(i = [-1:1]) {
+    translate([i * x_shift, y_shift, z_shift])
+      cuboid(size=[wall_thickness * 2, bag_slot_width, bag_slot_len], rounding = notch_rounding, edges=[FRONT + TOP]);
 
-  // Right notch.
-  translate([( (bin_depth / 2) - (wall_thickness / 2)), y_shift, z_shift])
-    cuboid(size=[wall_thickness * 2, bag_slot_width, bag_slot_len], rounding = notch_rounding, edges=[FRONT + TOP]);
+  }
 
-  // Left notch
-  translate([( -(bin_depth / 2) + (wall_thickness / 2)), y_shift, z_shift])
-    cuboid(size=[wall_thickness * 2, bag_slot_width, bag_slot_len], rounding = notch_rounding, edges=[FRONT + TOP]);
 }
 
 //
