@@ -30,10 +30,10 @@ wall_thickness = 2;
 // Rounding of the outside corners.
 corner_rounding = 10;
 
-// True to cut in slots for a bag to be folded in to.  Only used if a add_side_slot is true.
+// True to cut in slots for a bag to be folded in to.  
 add_bag_slot = true;
 
-// How long to make the bag slot as measure from the top fo the bin.
+// How long to make the bag slot as measure from the top fo the bin. Only used if a add_side_slot is true.
 bag_slot_len = 25;
 
 // Width of the bag slot.
