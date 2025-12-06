@@ -33,4 +33,19 @@ The `*.3mf` file in this repo is a [Orca Slicer](https://orcaslicer.com) project
 
 ## Example Output
 
+### Large Sink Waste Bin
+
 ![Sink Waste Bin](sample-sink-waste-bin.jpeg)
+
+### Smaller Sink Waste Bin with bag slots
+
+![Smaller Sink Waste Bin with Bag Slots](sink-waste-bin-bag-slot.jpeg)
+
+### Nespresso Used Pod Bin
+
+A bin for putting our used Nespresso pods before going to the recycler. 
+
+![Nespresso Pod Bin](nespresso-pod-bin.jpeg)
+
+
+
