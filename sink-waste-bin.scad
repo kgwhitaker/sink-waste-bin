@@ -121,8 +121,6 @@ module build_model() {
 
       if (add_side_slot) {
         side_slot();
-
-        // bag_slot();
       }
     }
 
