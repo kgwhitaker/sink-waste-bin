@@ -13,7 +13,7 @@ include <BOSL2/std.scad>
 bin_width = 120;
 
 // Indicates if there should be a side slot.
-add_side_slot = true;
+add_side_slot = false;
 
 // Width of the side slot
 side_slot = 15;
@@ -31,13 +31,22 @@ wall_thickness = 2;
 corner_rounding = 10;
 
 // True to cut in slots for a bag to be folded in to.  
-add_bag_slot = true;
+add_bag_slot = false;
 
 // How long to make the bag slot as measure from the top fo the bin. Only used if a add_side_slot is true.
 bag_slot_len = 25;
 
 // Width of the bag slot.
 bag_slot_width = 4;
+
+// Set to true to add a mouse hole to one edge at the top of the bin.
+add_mouse_hole = true;
+
+// Diameter of the mouse hole at the top of the bin; used as a cord exit when sized for a power strip cover.
+mouse_hole_diam = 14;
+
+// Height of the mouse hole
+mouse_hole_height = 18;
 
 // *** "Private" variables ***
 /* [Hidden] */
@@ -86,12 +95,18 @@ module bag_slot() {
   notch_rounding = -(bag_slot_width / 2);
 
   // Creates the right then left notches.
-  for(i = [-1:1]) {
+  for (i = [-1:1]) {
     translate([i * x_shift, y_shift, z_shift])
-      cuboid(size=[wall_thickness * 2, bag_slot_width, bag_slot_len], rounding = notch_rounding, edges=[FRONT + TOP]);
-
+      cuboid(size=[wall_thickness * 2, bag_slot_width, bag_slot_len], rounding=notch_rounding, edges=[FRONT + TOP]);
   }
+}
 
+//
+// Creates the mouse hole at the top of the bin.
+//
+module mouse_hole() {
+  translate([(bin_depth / 2) - wall_thickness / 2, 0, (bin_height / 2) - (mouse_hole_height / 2)])
+    cuboid(size=[wall_thickness * 2, mouse_hole_diam, mouse_hole_height], rounding=mouse_hole_diam / 2, edges=[BOT + FRONT, BOT + BACK]);
 }
 
 //
@@ -112,10 +127,10 @@ module build_model() {
     }
 
     if (add_side_slot && add_bag_slot) {
-        bag_slot();
-
+      bag_slot();
     }
 
+    if (add_mouse_hole) mouse_hole();
   }
 }
 
