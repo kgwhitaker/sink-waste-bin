@@ -15,6 +15,9 @@ bin_width = 120;
 // Indicates if there should be a side slot.
 add_side_slot = false;
 
+// Indicates if the side slot should be divided in half.
+divide_side_slot = true;
+
 // Width of the side slot
 side_slot = 15;
 
@@ -80,10 +83,11 @@ module side_slot() {
   }
 
   // Divide the side slot by 2.
-  y_pos = (bin_width / 2) - (side_slot / 2) - wall_thickness;
-  
-  translate([0, y_pos, 0]) {
-    cuboid(size=[wall_thickness, side_slot, bin_height]);
+  if (divide_side_slot) {
+  y_pos = (bin_width / 2) - (side_slot / 2) - wall_thickness;  
+    translate([0, y_pos, 0]) {
+      cuboid(size=[wall_thickness, side_slot, bin_height]);
+    }
   }
 }
 

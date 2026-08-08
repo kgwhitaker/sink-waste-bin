@@ -45,6 +45,7 @@
             "bin_height": "90",
             "bin_width": "110",
             "corner_rounding": "10",
+            "divide_side_slot": "false",
             "mouse_hole_diam": "14",
             "mouse_hole_height": "18",
             "side_slot": "38",
