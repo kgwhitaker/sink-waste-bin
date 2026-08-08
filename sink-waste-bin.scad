@@ -80,7 +80,9 @@ module side_slot() {
   }
 
   // Divide the side slot by 2.
-  translate([0, (bin_width / 2) - side_slot + wall_thickness * 3, 0]) {
+  y_pos = (bin_width / 2) - (side_slot / 2) - wall_thickness;
+  
+  translate([0, y_pos, 0]) {
     cuboid(size=[wall_thickness, side_slot, bin_height]);
   }
 }

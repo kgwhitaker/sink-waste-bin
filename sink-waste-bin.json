@@ -11,12 +11,43 @@
             "wall_thickness": "2"
         },
         "small_waste_bin": {
-            "add_side_slot": "false",
+            "add_mouse_hole": "false",
+            "add_side_slot": "true",
             "bin_depth": "110",
             "bin_height": "200",
             "bin_width": "200",
             "corner_rounding": "10",
             "side_slot": "15",
+            "wall_thickness": "2"
+        },
+        "power-strip-shroud": {
+            "add_bag_slot": "false",
+            "add_mouse_hole": "true",
+            "add_side_slot": "false",
+            "bag_slot_len": "25",
+            "bag_slot_width": "4",
+            "bin_depth": "154",
+            "bin_height": "36",
+            "bin_width": "52",
+            "corner_rounding": "4",
+            "mouse_hole_diam": "16",
+            "mouse_hole_height": "22",
+            "side_slot": "15",
+            "wall_thickness": "1"
+        },
+        "robins caddy": {
+            "add_bag_slot": "false",
+            "add_mouse_hole": "false",
+            "add_side_slot": "true",
+            "bag_slot_len": "25",
+            "bag_slot_width": "4",
+            "bin_depth": "110",
+            "bin_height": "90",
+            "bin_width": "110",
+            "corner_rounding": "10",
+            "mouse_hole_diam": "14",
+            "mouse_hole_height": "18",
+            "side_slot": "38",
             "wall_thickness": "2"
         }
     }
